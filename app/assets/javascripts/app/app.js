@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('popcornApp',[])
+angular.module('popcornApp',['ngRoute'])
   .controller('MoviesController',
   function($scope) {
       $scope.movies = [
@@ -60,7 +60,7 @@ angular.module('popcornApp',[])
         }
       ];
 
-      
+
       $scope.addFavorite = function(movie) {
         movie.isFavorite = true;
       };
@@ -70,3 +70,4 @@ angular.module('popcornApp',[])
       };
 
   });
+.controller('MovieController',function($scope))
