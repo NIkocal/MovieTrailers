@@ -12,3 +12,4 @@
 //
 //= require angular
 //= require_tree .
+//= require angular-route
