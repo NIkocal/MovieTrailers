@@ -1,6 +1,16 @@
 'use strict';
 
 angular.module('popcornApp',['ngRoute'])
+.config(function($routeProvider, $locationProvider) {
+  $routeProvider
+    .when('/', 
+      {
+        controller: 'MoviesController',
+        templateUrl: '/templates/movies.html'
+      })
+    .otherwise({redirectTo: '/'});
+  $locationProvider.html5Mode(true);
+})
   .controller('MoviesController',
   function($scope) {
       $scope.movies = [
@@ -69,5 +79,7 @@ angular.module('popcornApp',['ngRoute'])
         movie.isFavorite = false;
       };
 
-  });
-.controller('MovieController',function($scope))
+  })
+ .controller('MovieController', function($scope) {
+  console.log('MovieController');
+});
