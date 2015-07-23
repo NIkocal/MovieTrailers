@@ -59,4 +59,14 @@ angular.module('popcornApp',[])
           posterUrl: "http://i.imgur.com/NtnxM9p.jpg"
         }
       ];
+
+      
+      $scope.addFavorite = function(movie) {
+        movie.isFavorite = true;
+      };
+
+      $scope.removeFavorite = function(movie) {
+        movie.isFavorite = false;
+      };
+
   });
