@@ -34,6 +34,7 @@
       </div>
     </div> <!-- /container -->
   
+
   <div ng-controller="MoviesController">
     <div class="container">
       <div class="row">
@@ -52,7 +53,7 @@
             <a class="favorite" ng-click="removeFavorite(movie)" ng-if="movie.isFavorite">
               <span class="favorited-heart">&#x2665;</span> 
                 Favorite
-            </a>
+             </a>
             <a class="favorite" ng-click="addFavorite(movie)" ng-if="!movie.isFavorite">
               <span class="unfavorited-heart">&#x2661;</span> 
                Add Favorite
