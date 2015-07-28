@@ -3,6 +3,11 @@
 angular.module('popcornApp',['ngRoute', 'popcornApp.controllers'])
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
+    .when('/movie/:movie_id',
+      {
+        controller: 'MovieController',
+        templateUrl: '/templates/movie.html'
+      })
     .when('/', 
       {
         controller: 'MoviesController',
