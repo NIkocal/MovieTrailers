@@ -11,5 +11,5 @@
 // about supported directives.
 //
 //= require angular
-//= require_tree .
 //= require angular-route
+//= require_tree 
