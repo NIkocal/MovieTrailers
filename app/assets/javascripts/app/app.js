@@ -15,7 +15,5 @@ angular.module('popcornApp',['ngRoute', 'popcornApp.controllers'])
       })
     .otherwise({redirectTo: '/'});
   $locationProvider.html5Mode(true);
-})
- .controller('MovieController', function($scope) {
-  console.log('MovieController');
 });
+ 
