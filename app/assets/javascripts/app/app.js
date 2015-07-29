@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('popcornApp',['ngRoute', 'popcornApp.controllers'])
+angular.module('popcornApp',['ngRoute', 'popcornApp.controllers', 'popcornApp.services'])
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/movie/:movie_id',
