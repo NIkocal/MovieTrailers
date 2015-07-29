@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'angularjs-rails', "=1.2.6"
 gem 'bootstrap-sass-rails', "=3.0.3.0"
-
+gem 'underscore-rails', '=1.5.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
