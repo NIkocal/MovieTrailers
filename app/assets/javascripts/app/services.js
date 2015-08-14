@@ -1,62 +1,26 @@
 angular.module('popcornApp.services',[])
- .service('MoviesService', function() {
- 	 this.movies = function(name) {
-	 	var movies = [
-	 	{
-	          youtubeId: "8Eg6yIwP2vs",
-	          title: "The Royal Tenenbaums",
-	          released: "2001",
-	          rated: "R",
-	          runningTime: 92,
-	          isFavorite: true,
-	          posterUrl: "http://i.imgur.com/np5EP3N.jpg"
-	        },
-	        {
-	          youtubeId: "lgo3Hb5vWLE",
-	          title: "Requiem for a Dream",
-	          released: "2000",
-	          rated: "R",
-	          runningTime: 102,
-	          isFavorite: false,
-	          posterUrl: "http://i.imgur.com/AYiim1H.jpg"
-	        },
-	        {
-	          youtubeId: "hsdvhJTqLak",
-	          title: "The Graduate",
-	          released: "1967",
-	          rated: "R",
-	          runningTime: 106,
-	          isFavorite: true,
-	          posterUrl: "http://i.imgur.com/gMwiOAD.jpg"
-	        },
-	        {
-	          youtubeId: "OtDQOF_pU8A",
-	          title: "8½",
-	          released: "1963",
-	          rated: "R",
-	          runningTime: 138,
-	          isFavorite: false,
-	          posterUrl: "http://i.imgur.com/QIPF827.jpg"
-	        },
-	        {
-	          youtubeId: "r_GCRFRcWxA",
-	          title: "The Big Lebowski",
-	          released: "1998",
-	          rated: "R",
-	          runningTime: 117,
-	          isFavorite: true,
-	          posterUrl: "http://i.imgur.com/AThCwkm.jpg"
-	        },
-	        {
-	          youtubeId: "KYz2wyBy3kc",
-	          title: "Toy Story",
-	          released: "1995",
-	          rated: "G",
-	          runningTime: 81,
-	          isFavorite: true,
-	          posterUrl: "http://i.imgur.com/NtnxM9p.jpg"
-	        }
-	      ];
-	    return movies;
-	  };
- })
+ .service('MoviesService', 
+  function($q, $http) {
+    this.movies = function(name) {
+      var d = $q.defer();
+
+      $http({method: 'GET', url: 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId=+UUi8e0iOVk1fEOogdfu4YgfA&key=AIzaSyDGA2AW7MVfqQDkzrH3j1bSwwbF_vCxHiU'}).
+      then(function(response) {
+        var movies = _.map(response.data.items, function(movie) {
+          return {
+           youtubeId: movie.snippet.resourceId.videoId,
+            title: movie.snippet.title,
+            description: movie.snippet.description,
+            posterUrl: movie.snippet.thumbnails.high.url       
+          };
+        });
+        d.resolve(movies);
+      },
+      function(error) {
+        d.reject(error);
+      });
+      return d.promise;
+    }
+  }
+);
+
