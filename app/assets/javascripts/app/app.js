@@ -7,6 +7,10 @@ angular.module('popcornApp',['ngRoute', 'popcornApp.controllers', 'popcornApp.se
       {
         controller: 'MovieController',
         templateUrl: '/templates/movie.html'
+      }).when ('/login',
+      {
+        controller: "LoginController",
+        templateUrl: '/templates/login.html'
       })
     .when('/', 
       {
