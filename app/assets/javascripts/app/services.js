@@ -60,7 +60,7 @@ angular.module('popcornApp.services',[])
          var d = $q.defer();
          service._user = null;
          $cookieStore.remove('user');
-         $rootscope.$broadcast("user:unset")
+         $rootScope.$broadcast("user:unset")
          d.resolve();
          return d.promise;
        };
