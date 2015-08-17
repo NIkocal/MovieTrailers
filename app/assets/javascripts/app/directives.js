@@ -7,6 +7,10 @@ angular.module('popcornApp.directives', [])
 				$scope.currentUser = currentUser;
 			});
 
+			$scope.$on('user:set', function(evt, currentUser) {
+				$scope.currentUser = currentUser;
+			});
+
 			$scope.logout = function () {
 				UserService.logout().then(function() {
 					$scope.currentUser = null;
