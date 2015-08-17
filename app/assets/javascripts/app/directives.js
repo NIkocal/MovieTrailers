@@ -3,8 +3,8 @@ angular.module('popcornApp.directives', [])
 	return {
 		templateUrl: '/templates/user_panel.html',
 		controller: function($scope, UserService){
-			UserService.currentUser().then(function (user) {
-				$scope.user = user;
+			UserService.currentUser().then(function(currentUser) {
+				$scope.currentUser = currentUser;
 			});
 
 			$scope.logout = function () {
@@ -16,3 +16,4 @@ angular.module('popcornApp.directives', [])
 		}
 	};
 });
+
