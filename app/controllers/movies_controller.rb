@@ -26,16 +26,17 @@ class MoviesController < ApplicationController
 	end
 
 	def index 
-		@movies = Movie.where(params.permit(:id,:title,:youtube_id)
+		@movies = Movie.where(params.permit(:id,:title,:youtube_id))
 
 			if @movies 
-				render status: :ok
+				render status: :ok,
 				json: @movies.as_json
 			else
 				render status: :not_found,
 				json: {error: "Movies not found"}
 			end
 	end
+
 	private
 	def movie_params
 		params.require(:movie).permit(:title,:youtube_id,:poster_url,:description)

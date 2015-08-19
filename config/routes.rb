@@ -3,6 +3,7 @@ Popcorn::Application.routes.draw do
   get "popcorn/index"
   root 'popcorn#index'
   resources :movies
+  resources :favorites
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
